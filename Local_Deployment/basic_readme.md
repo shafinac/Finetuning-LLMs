@@ -7,6 +7,16 @@ In order to give your finetuned model a basic Chatgpt like UI folllow the below 
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
+Now convert the existing Modelfile to an ollama model:
+```bash
+ollama create finetuned-1b -f Modelfile
+```
+If a 1B variant exists in the Ollama library, pull it (example name only):
+
+```bash
+ollama pull llama3.2:1b
+ollama run llama3.2:1b
+```
 2. Download Docker Engine and Docker Desktop
 
 

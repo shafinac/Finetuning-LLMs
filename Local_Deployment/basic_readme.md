@@ -33,4 +33,35 @@ docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-
 6. After hitting Select a model in the top left corner you should be able to see all the models you downloaded!
 
 
+Optional:
+If you want to run the .gguf file:
+1. Open the directory in which the file is, using the terminal
+2. Assuming file name is :llama-3.2-1b-instruct.Q4_K_M.gguf, we next create an empty file called Modelfile.
+3. Type the following in the terminal
+   
+   ```bash
+   cat > Modelfile <<'EOF'
+
+   FROM ./lama-3.2-1b-instruct.Q4_K_M.gguf
+
+
+   SYSTEM "You are a concise, helpful assistant."
+   TEMPLATE "{{ .Prompt }}"
+   EOF
+   ```
+
+4. Now create the ollama model:
+   ```bash
+   ollama create finetuned-gguf -f Modelfile
+   ```
+6. Check in ollamas list
+  ```bash
+   ollama list
+   ```
+7. Run it using ollama to test
+   ```bash
+   ollama run finetuned-gguf
+   ```
+
+
 

@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  app:
+    build: ./app
+    container_name: compare-ui
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./eval_data:/app/eval_data
+      - ./models:/models
+    restart: unless-stopped

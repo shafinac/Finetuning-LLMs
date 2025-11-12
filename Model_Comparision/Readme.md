@@ -1,4 +1,4 @@
-/*
+
 # Ollama Compare UI
 
 Compare any two Ollama models (e.g., `llama3.2:1b` vs your finetuned GGUF) with a tiny Streamlit UI.
